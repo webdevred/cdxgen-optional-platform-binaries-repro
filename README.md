@@ -2,7 +2,7 @@
 
 Reproducer for the last point in https://github.com/cdxgen/cdxgen/discussions/4070.
 
-The project depends on `@napi-rs/nice` and imports it from `src/index.js`. `@napi-rs/nice` lists 16 platform packages under `optionalDependencies`, and every one of them has `"optional": true` plus `os` and `cpu` in `package-lock.json`. Only the ones matching the host get installed, and at runtime only one of them is loaded.
+The project depends on `@napi-rs/nice` and imports it from `src/index.js`. `@napi-rs/nice` lists 16 platform packages under `optionalDependencies`, and every one of them has `"optional": true` plus `os` and `cpu` in `package-lock.json`. npm installs the ones whose `os` and `cpu` match the host, which on linux x64 is both the gnu and the musl build, and at runtime only one of them is loaded.
 
 cdxgen gives every platform package it lists `scope: required`, while the same components have `cdx:npm:package:optional=true`.
 
