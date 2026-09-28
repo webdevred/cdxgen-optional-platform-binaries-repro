@@ -1,0 +1,9 @@
+{
+  "name": "optional-platform-binaries-repro",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@napi-rs/nice": "1.0.4"
+  }
+}
